@@ -11,7 +11,11 @@ RUN \
 
 # Install openssh-server, maven and git.
 RUN apt-get install -y openssh-server maven git
-RUN mkdir /var/run/sshd
-RUN echo 'root:screencast' |chpasswd
+#RUN mkdir /var/run/sshd
+#RUN echo 'root:screencast' |chpasswd
 
 EXPOSE 22
+
+ADD assets/ /app/
+RUN chmod 755 /app/setup/install
+RUN /app/setup/install

@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+mkdir /var/run/sshd
+echo 'root:123456'|chpasswd
+cat > /etc/supervisor/conf.d/sshd.conf <<EOF
+[program:sshd]
+command=/usr/sbin/sshd -D
+EOF
+
+# start supervisor
+/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
