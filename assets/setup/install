@@ -1,19 +1,15 @@
 #!/bin/bash
 set -e
 
-mkdir /var/run/sshd
+mkdir -p /var/run/sshd
 echo 'root:123456'|chpasswd
 cat > /etc/supervisor/conf.d/sshd.conf <<EOF
 [program:sshd]
-priority=20
-directory=/tmp
+directory=/
 command=/usr/sbin/sshd -D
 user=root
-autostart=true
+autostart=false
 autorestart=true
 stdout_logfile=/var/log/supervisor/%(program_name)s.log
-stderr_logfile=/var/log/supervisor/%(program_name)s.log
+stderr_logfile=/var/log/supervisor/%(program_name)s_error.log
 EOF
-
-# start supervisor
-/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
