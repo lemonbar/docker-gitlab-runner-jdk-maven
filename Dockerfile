@@ -11,6 +11,7 @@ RUN \
 
 # Install openssh-server, maven and git.
 RUN apt-get install -y openssh-server maven git
+RUN apt-get clean
 #RUN mkdir /var/run/sshd
 #RUN echo 'root:screencast' |chpasswd
 
