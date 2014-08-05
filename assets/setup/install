@@ -16,4 +16,4 @@ stderr_logfile=/var/log/supervisor/%(program_name)s.log
 EOF
 
 # start supervisor
-#/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
