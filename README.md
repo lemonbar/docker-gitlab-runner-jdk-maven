@@ -71,7 +71,7 @@ If your GitLab server is using self-signed SSL certificates then you should make
 
 The default path the runner is configured to look for the trusted SSL certificates is at /home/gitlab_ci_runner/data/certs/ca.crt, this can however be changed using the CA_CERTIFICATES_PATH configuration option.
 
-If you remember from above, the /home/gitlab_ci_runner/data path is the path of the [data store](#data-store), which means that we have to create a folder named certs inside /opt/gitlab-ci-runner/data/ and add the ca.crt file into it.
+If you remember from above, the /home/gitlab_ci_runner/data path is the path of the [data store](#data-store), which means that we have to create a folder named certs inside /opt/gitlab-runner-jdk-maven/ and add the ca.crt file into it.
 
 The ca.crt file should contain the root certificates of all the servers you want to trust. With respect to GitLab, this will be the contents of the gitlab.crt file as described in the [README](https://github.com/sameersbn/docker-gitlab/blob/master/README.md#ssl) of the [docker-gitlab](https://github.com/sameersbn/docker-gitlab) container.
 
