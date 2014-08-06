@@ -5,10 +5,10 @@ mkdir -p /var/run/sshd
 echo 'root:123456'|chpasswd
 cat > /etc/supervisor/conf.d/sshd.conf <<EOF
 [program:sshd]
-directory=/
+directory=/tmp
 command=/usr/sbin/sshd -D
 user=root
-autostart=false
+autostart=true
 autorestart=true
 stdout_logfile=/var/log/supervisor/%(program_name)s.log
 stderr_logfile=/var/log/supervisor/%(program_name)s_error.log
